@@ -61,8 +61,22 @@
 
 	}
 
-	JSML.run = function(appCode) {
+	JSML.run = function(appCode, target) {
 		var defaultTarget = 'body';
+      var dom = new JSML(appCode);
 		document.getElementsByTagName(target || defaultTarget)[0].innerHTML = dom.output;
 		return dom;
 	}
+   
+var navi = {
+   elm: 'nav',
+   inner: []
+}
+var x = [1, 'a', 3]; 
+x.forEach(function(dummyData){
+   navi.inner.push({elm: 'a', inner: dummyData.toString(), href: '#', onclick: 'javascript:alert();'});   
+});
+
+
+// Generate application HTML on the client side writing to the body elm
+JSML.run(navi, 'body');
