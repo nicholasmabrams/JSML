@@ -5,6 +5,15 @@ Best of all, there is basically 0 learning curve if you already know HTML and th
 
 Description: All DOM nodes are made up of simple JavaScript objects. This language is a direct replacement for HTML and it is capable of rendering any DOM element, or set of DOM elements (nested or unested). The developer may use any set of standard or (custom) non-standard attributes (data attributes etc) as well. 
 
+#On the client 
+
+Target the body tag, pass the selector as the second parameter to `JSML.run(JSDOM, 'body')` and then have client render by including the script anywhere on the page.
+
+#or
+
+#On the serverside
+Use NodeJS to directly render the application on the serverside.
+
 Here is what a button and a H1 element and its properties looks like, the variable name is not required but its best for this example and also for many other use cases (allows for modular seperation of components that is not possible out of the box with HTML).
 
 `var exampleDataToShareAndBind = 'Hello JSML!';`
@@ -35,7 +44,6 @@ Here is what a button and a H1 element and its properties looks like, the variab
 `JSML.run(form, 'body');`
 
 `// Assign events after (no window.load or $(function(){}); needed, just bind after you execute the parser, "compiler")`
-
 
 Will result in the following markup being sent to the clients browser (the real output is compressed, indented here for your viewing pleasure):
 
