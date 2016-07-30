@@ -60,3 +60,9 @@
 		}
 
 	}
+	JSML.run = function(appCode, target) {
+		var defaultTarget = 'body',
+      		var dom = new JSML(appCode);
+		document.getElementsByTagName(target || defaultTarget)[0].innerHTML = dom.output;
+		return dom;
+	}
