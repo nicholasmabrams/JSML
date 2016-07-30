@@ -1,6 +1,6 @@
 # JSML - Made with love by Nicholas Abrams - with some help from this thread http://stackoverflow.com/questions/38625343/building-es6-JSML-and-string-generator/38626356#38626356
 
-JavaScript Markup Language - Replacement for HTML. Render flexible apps completely in JavaScript, EASILY.
+JavaScript Markup Language - replacement for HTML. Render flexible apps completely in JavaScript, EASILY.
 Best of all, there is basically 0 learning curve if you already know HTML and the VERY basics of JavaScript.
 
 Description: All DOM nodes are made up of simple JavaScript objects. This language is a direct replacement for HTML and it is capable of rendering any DOM element, or set of DOM elements (nested or unested). The developer may use any set of standard or (custom) non-standard attributes (data attributes etc) as well. 
