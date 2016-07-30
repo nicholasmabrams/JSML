@@ -51,4 +51,4 @@ Here is the live demo showcasing JSML using the syntax above: http://codepen.io/
 This generator may be used to data bind using no framework, and can render the document on the server side (using NodeJS or other serverside JavaScript technology) or on the clientside (in the browser of the users device). It is very lightweight (ONLY 3KB!), and is very efficient, extendable, and works with any existing frameworks (AngularJS, Ionic, Ember, React, Etc). JSML offers no opinion on your development choices, just a way to make web applications development a more consistant, flexible, dynamic experience.
 
 
-ENJOY!
+#ENJOY!
