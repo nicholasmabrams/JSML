@@ -18,34 +18,33 @@ Here is what a button and a H1 element and its properties looks like, the variab
 
 #Simple usage:
 
-`var exampleDataToShareAndBind = 'Hello JSML!';`
+    var exampleDataToShareAndBind = 'Hello JSML!';
 
-`var mainTitle = {`
-  `elm: 'h1',`
- `inner:  exampleDataToShareAndBind`
-`}`
+    var mainTitle = {
+      elm: 'h1',
+     inner:  exampleDataToShareAndBind
+    }
 
-`var button = {`
-  `elm: 'button',`
-  `inner: 'Click me',`
- `dataButtonMsg:  exampleDataToShareAndBind, // this ends up as data-button-msg, with data bound from the main title value`
-`}`
-  
-  `var form = {`
-   `elm: 'form',`
-   `method: 'POST',`
-   `action: 'javascript:alert("'+exampleDataToShareAndBind+'");',`
-   `method: '#',`
-   `inner: [`
-            `mainTitle,`
-            `button,`
-          `]`
-  `}`
-
-`// Generate your application`
-`JSML.run(form, 'body');`
-
-`// Assign events after (no window.load or $(function(){}); needed, just bind after you execute the parser, "compiler")`
+    var button = {
+      elm: 'button',
+      class: 'active',
+      inner: 'Click me',
+      dataButtonMsg:  exampleDataToShareAndBind, // this ends up as data-button-msg, with data bound from the main title value`
+    }
+    var form = {
+       elm: 'form',
+       method: 'POST',
+       action: 'javascript:alert("'+exampleDataToShareAndBind+'");',
+       method: '#',
+       inner: [
+              mainTitle,
+              button,
+              ]
+    }
+    // Generate your application`
+    JSML.run(form, 'body');
+    // Assign events after (no window.load or $(function(){}); needed, just bind after you execute the parser, "compiler")
+    document.querySelectorAll('.'+button.class)[0].onclick = function(){ alert() };
 
 Will result in the following markup being sent to the clients browser (the real output is compressed, indented here for your viewing pleasure):
 
