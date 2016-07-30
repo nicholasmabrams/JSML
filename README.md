@@ -9,12 +9,14 @@ Description: All DOM nodes are made up of simple JavaScript objects. This langua
 
 Target the body tag, pass the selector as the second parameter to `JSML.run(JSDOM, 'body')` and then have client render by including the script anywhere on the page.
 
-or
 
-#On the serverside
-Use NodeJS to directly render the application on the serverside.
+
+#Or on the serverside
+Using NodeJS to directly render the application on the serverside.
 
 Here is what a button and a H1 element and its properties looks like, the variable name is not required but its best for this example and also for many other use cases (allows for modular seperation of components that is not possible out of the box with HTML).
+
+#Simple usage:
 
 `var exampleDataToShareAndBind = 'Hello JSML!';`
 
@@ -54,9 +56,76 @@ Will result in the following markup being sent to the clients browser (the real 
 
 Here is the live demo showcasing JSML using the syntax above: http://codepen.io/nicholasabrams/pen/VjBWdL?editors=0010
 
+Where this JavaScript...
+      
+    // Define a VERY simple angular application for example...
+
+    var button = {
+       elm: 'button',
+       ngIf: 'JSML.isAmazing === true',
+       inner: '{{ buttonText }}'
+    }
+
+    var main = {
+         elm: 'div',
+         ngApp: 'JSMLExample',
+         ngController: 'JSMLController',
+         inner: [ { elm:'h1', inner: '{{ title }}'}, // Inline
+                  button ] // By ref
+      }
+      
+      // Generate application HTML
+      JSML.run(main, 'body');
+      
+      var app = angular.module('JSMLExample', []);
+      
+      app.controller('JSMLController', function($scope){
+         $scope.JSML = { isAmazing: true }
+         $scope.title = 'JSML - The end of HTML!';
+         $scope.buttonText = 'Works with AngularJS and all other frameworks : )';
+      }); 
+
+#With AngularJS
+
+Produces this AngularJS application in the browser
+ 
+      <div ng-app="JSMLExample" ng-controller="JSMLController" class="ng-scope">
+        <h1 class="ng-binding">JSML - The end of HTML!</h1>
+        <button ng-if="JSML.isAmazing === true" class="ng-binding ng-scope">Works with AngularJS and all other frameworks : )</button>
+      </div>
+
+Additionally, here is JSML working with AngularJS with no adjustment or hacks needed: http://codepen.io/nicholasabrams/pen/wWxqBp?editors=0010
+
+#And here is where it all makes real real sense to use JSML:
+#Dynamic Content Generation
+
+Here is JSML using the power of native JavaScript to dynamically generate the DOM for an example navigation menu
+      
+      var navi = {
+         elm: 'nav',
+         inner: []
+      }
+      var x = [1, 'a', 3]; 
+      x.forEach(function(dummyData){
+         navi.inner.push({elm: 'a', inner: dummyData.toString(), href: '#', onclick: 'javascript:alert();'});   
+      });
+      
+      
+      // Generate application HTML on the client side writing to the body elm
+      JSML.run(navi, 'body');
+
+Produces
+
+      <nav>
+        <a href="#" onclick="javascript:alert();">1</a>
+        <a href="#" onclick="javascript:alert();">a</a>
+        <a href="#" onclick="javascript:alert();">3</a>
+      </nav>
+
+Demo: http://codepen.io/nicholasabrams/pen/oLrZjx?editors=0010
+
 #Just imagine, the possibilities are ENDLESS!
 
 This generator may be used to data bind using no framework, and can render the document on the server side (using NodeJS or other serverside JavaScript technology) or on the clientside (in the browser of the users device). It is very lightweight (ONLY 3KB!), and is very efficient, extendable, and works with any existing frameworks (AngularJS, Ionic, Ember, React, Etc). JSML offers no opinion on your development choices, just a way to make web applications development a more consistant, flexible, dynamic experience.
-
 
 #ENJOY!
