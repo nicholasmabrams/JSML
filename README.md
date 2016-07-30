@@ -9,7 +9,7 @@ Description: All DOM nodes are made up of simple JavaScript objects. This langua
 
 Target the body tag, pass the selector as the second parameter to `JSML.run(JSDOM, 'body')` and then have client render by including the script anywhere on the page.
 
-#or
+or
 
 #On the serverside
 Use NodeJS to directly render the application on the serverside.
