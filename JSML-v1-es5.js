@@ -63,13 +63,7 @@ var JSML = function () {
             } else if (isSingleChildContent)
                 elmContent = JSML.run(value).output;
         }
-        for (var key in vNode) {
-            if (window.CP.shouldStopExecution(1)) {
-                break;
-            }
-            parseInput(vNode, key);
-        }
-        window.CP.exitedLoop(1);
+        for (var key in vNode) parseInput(vNode, key);
         elmStart += ' ' + elmAttrs + '>';
         if (elmContent)
             this.output = elmStart + elmContent + elmEnd;
