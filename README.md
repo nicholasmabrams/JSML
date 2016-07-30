@@ -55,6 +55,8 @@ Will result in the following markup being sent to the clients browser (the real 
 
 Here is the live demo showcasing JSML using the syntax above: http://codepen.io/nicholasabrams/pen/VjBWdL?editors=0010
 
+#With AngularJS
+
 Where this JavaScript...
       
     // Define a VERY simple angular application for example...
@@ -84,8 +86,6 @@ Where this JavaScript...
          $scope.buttonText = 'Works with AngularJS and all other frameworks : )';
       }); 
 
-#With AngularJS
-
 Produces this AngularJS application in the browser
  
       <div ng-app="JSMLExample" ng-controller="JSMLController" class="ng-scope">
@@ -95,7 +95,7 @@ Produces this AngularJS application in the browser
 
 Additionally, here is JSML working with AngularJS with no adjustment or hacks needed: http://codepen.io/nicholasabrams/pen/wWxqBp?editors=0010
 
-#And here is where it all makes real real sense to use JSML:
+#And here is where it all makes real sense to use JSML:
 #Dynamic Content Generation
 
 Here is JSML using the power of native JavaScript to dynamically generate the DOM for an example navigation menu
