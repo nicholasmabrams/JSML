@@ -24,7 +24,7 @@
 			    elmContent;
 
 			selfClosingTagNames.forEach(function(selfClosingTagName) {
-				if (vNode.elm === selfClosingTagName) elmEnd === '';
+				if (vNode.elm === selfClosingTagName) elmEnd = '';
 				else elmEnd = `</${vNode.elm}>`;
 			});
 
