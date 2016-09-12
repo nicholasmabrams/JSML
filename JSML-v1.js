@@ -55,8 +55,7 @@
 		}
 
 		parse(input) {
-			var self = this;
-			self.generateDom(input);
+			this.generateDom(input);
 		}
 
 	}
